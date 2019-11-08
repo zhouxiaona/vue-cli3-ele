@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -30,5 +30,20 @@ export default new Router({
       name: 'seller',
       component: () => import('@/views/seller/index.vue')
     },
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    console.log('-to-', to)
+    console.log('-from-', from)
+    console.log('-savedPosition-', savedPosition)
+  }
 })
+
+router.beforeEach((to, from, next) => {
+  // console.log('-to-', to)
+  // console.log('-from-', from)
+  // console.log('-next-', next)
+  next()
+})
+
+export default router;

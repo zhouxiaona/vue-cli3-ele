@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="fade">
+    <transition :name="transitionName">
       <router-view />
     </transition>
   </div>
@@ -9,11 +9,22 @@
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   name: 'App',
-  data: function() {
+  data() {
     return {
+      transitionName: 'slide-left',
       sellerData: {},
       goodsData: {},
       ratingsData: {}
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      // console.log(to,'--to--')
+      // console.log(from,'--from--')
+      const toDepth = to.path.split('/').length
+      const fromDepth = from.path.split('/').length
+      // console.log(toDepth,'--',fromDepth)
+      this.transitionName = toDepth == fromDepth ? 'slide-right' : 'slide-left'
     }
   },
   methods:{
@@ -49,10 +60,12 @@ export default {
       })
     },
   },
+  create(){},
   mounted() {
     this.getSellerData()
     this.getGoodsData()
     this.getRatingsData()
+    console.log('--master--branch--')
   }
 }
 </script>

@@ -118,6 +118,11 @@
         'goodsData',
       ]),
     },
+    beforeRouteUpdate (to, from, next) {
+      // react to route changes...
+      // don't forget to call next()
+      next()
+    },
     methods: {
       doAnimate(el){
         for(var i = 0; i < this.balls.length; i++){

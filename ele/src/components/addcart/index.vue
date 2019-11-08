@@ -24,7 +24,20 @@
   import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
   export default {
     name: "addcart",
-    props:['mykey','mykeys','goodsData'],
+    props:{
+      mykey: {
+        type: Number,
+        default: 0
+      },
+      mykeys:{
+        type:Number,
+        default:0
+      },
+      goodsData:{
+        type: Array,
+        default: []
+      }
+    },
     methods:{
       addNum(event){
         let operateTool = [this.mykey, this.mykeys]

@@ -95,8 +95,6 @@
         ],
       }
     },
-    props:{
-    },
     components:{
       Star
     },
@@ -118,6 +116,13 @@
       }
     },
     mounted() {
+      // console.log(this.$route,'--$route--')
+      this.navList.map((item,index)=>{
+        // console.log(index,'--index--')
+        if(item.navPath === this.$route.name){
+          this.activeBarIndex = index
+        }
+      })
     }
   }
 </script>

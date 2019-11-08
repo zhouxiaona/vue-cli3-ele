@@ -1,7 +1,7 @@
 <template>
   <div class="cont_footer">
     <footer
-      :class="sums > 0 ? 'white' : ''"
+      :class="sums > 0 ? 'activeStyle' : ''"
     >
       <div 
         class="shopping_cart" 
@@ -52,8 +52,6 @@
         isShowCart: false,
         sums: 0,
       }
-    },
-    props: {
     },
     computed:{
       ...mapGetters([
@@ -151,7 +149,7 @@
       background: rgba(255, 255, 255, 0.2);
     }
   }
-  .white{
+  .activeStyle{
     .shopping_cart{
       background: #00A0DC;
     }
