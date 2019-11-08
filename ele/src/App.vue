@@ -65,7 +65,7 @@ export default {
     this.getSellerData()
     this.getGoodsData()
     this.getRatingsData()
-    console.log('--master--branch--')
+    console.log('--master--dev--branch--')
     console.log('--dev--branch--')
   }
 }
