@@ -7,13 +7,13 @@
           class="menuItem"
           v-for="(v,k) in goodsData"
           v-bind:key = "k" 
-          @click="menuShow(k)" 
+          @click.stop="menuShow(k)" 
           :class="k == defaultIndex ? 'whites' : 'grays'"
         >
           <div class="menuItem_box">{{v.name}}</div>
         </div>
       </div>
-      <div class="goods" @scroll="scrollC" ref="ulContainer">
+      <div class="goods" @scroll.passive="scrollC" ref="ulContainer">
         <div 
           class="goodsItem" 
           v-for="(val,key) in goodsData" 
@@ -152,7 +152,7 @@
         el.addEventListener("transitionend",done);
       },
       afterEnter(el){
-        //可能会清除正在运动得到小球，体验略微不好
+        //可能会清除正在运动的小球，体验略微不好
         for(var i = 0; i < this.balls.length; i++){
           this.balls[i].judge = false;
         }

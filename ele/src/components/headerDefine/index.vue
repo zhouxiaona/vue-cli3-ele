@@ -92,6 +92,10 @@
             navText:'商家',
             navPath:'seller'
           },
+          {
+            navText:'其他',
+            navPath:'other'
+          },
         ],
       }
     },
@@ -238,6 +242,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     background: rgba(7,17,27,0.8);
     display: flex;
     flex-direction: column;

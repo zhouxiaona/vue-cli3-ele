@@ -30,6 +30,11 @@ const router =  new Router({
       name: 'seller',
       component: () => import('@/views/seller/index.vue')
     },
+    {
+      path: '/other',
+      name: 'other',
+      component: () => import('@/views/other/index.vue')
+    },
   ],
   scrollBehavior (to, from, savedPosition) {
     // return 期望滚动到哪个的位置

@@ -1,7 +1,12 @@
 const mockIndexData = require("./mock/index.json");
+const VConsolePlugin = require('vconsole-webpack-plugin')
+const getEnv = process.env.NODE_ENV == 'production' ? false : true
 module.exports = {
   chainWebpack: config => {
     /* disable insertion of assets as data urls b/c Phaser doesn't support it */
+    config
+      .plugin('vconsole')
+      .use(VConsolePlugin, [{ enable: getEnv }])
     const rules = [
       { name: 'images', dir: 'img' },
       { name: 'media',  dir: 'media' }
@@ -11,11 +16,16 @@ module.exports = {
       ruleConf.uses.clear()
       ruleConf
         .use('file-loader')
-          .loader('file-loader')
-          .options({
-            name: `${rule.dir}/[name].[hash:8].[ext]`
-          })
+        .loader('file-loader')
+        .options({
+          name: `${rule.dir}/[name].[hash:8].[ext]`
+        })
     })
+  },
+  configureWebpack: config => {
+    if(!getEnv){
+      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
+    }
   },
   devServer: {
     open: true,
@@ -46,6 +56,6 @@ module.exports = {
       })
     }
   },
-  productionSourceMap:process.env.NODE_ENV == 'production'?false:true,
-  publicPath:'./'
+  productionSourceMap: getEnv,
+  publicPath: './'
 }
