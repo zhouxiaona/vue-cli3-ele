@@ -1,5 +1,5 @@
 {
-  "name": "ele",
+  "name": "vue-cli3-ele",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -40,5 +40,18 @@
     "postcss-viewport-units": "^0.1.6",
     "postcss-write-svg": "^3.0.1",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "description": "<!--\r  * @Author: tankswift\r  * @Date: 2020-07-14 11:55:20\r  * @LastEditors: tankswift\r  * @LastEditTime: 2020-07-21 09:56:26\r  * @Description: 文件描述\r  * @FilePath: \\workSpace\\vue-cli3-ele\\README.md\r --> \r # Just for practice",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhouxiaona/vue-cli3-ele.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhouxiaona/vue-cli3-ele/issues"
+  },
+  "homepage": "https://github.com/zhouxiaona/vue-cli3-ele#readme"
 }
